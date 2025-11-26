@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,8 @@
         @font-face {
             font-family: 'Digitany Regular';
             src: local('Digitany Regular'),
-                 url('fonts/Digitany-Regular.woff2') format('woff2'),
-                 url('fonts/Digitany-Regular.woff') format('woff');
+                url('fonts/Digitany-Regular.woff2') format('woff2'),
+                url('fonts/Digitany-Regular.woff') format('woff');
             font-weight: 400;
             font-style: normal;
             font-display: swap;
@@ -38,7 +39,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 50%, rgba(255, 140, 60, 0.12) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(255, 100, 30, 0.1) 0%, transparent 50%);
             pointer-events: none;
@@ -47,40 +48,22 @@
 
         .dashboard-container {
             display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: auto auto 1fr;
-            gap: 20px;
-            padding: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-            min-height: 100vh;
-        }
-
-        @media (min-width: 768px) {
-            .dashboard-container {
-                grid-template-columns: 1fr 320px;
-                grid-template-rows: auto 1fr;
-                padding: 24px;
-                gap: 24px;
-            }
+            grid-template-columns: 1fr 320px;
+            grid-template-rows: auto 1fr;
+            height: 100vh;
+            padding: 24px;
+            gap: 24px;
+            overflow: hidden;
         }
 
         .header {
             grid-column: 1 / -1;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
             justify-content: space-between;
             align-items: center;
             padding: 0 16px;
             border-bottom: 1px solid rgba(255, 140, 60, 0.2);
             padding-bottom: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .header {
-                flex-direction: row;
-            }
         }
 
         .logo {
@@ -96,19 +79,13 @@
 
         .logo h1 {
             font-family: 'Digitany Regular', 'Inter', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
             background: linear-gradient(90deg, #ff8c3c, #ff6400);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 0.5px;
-        }
-
-        @media (min-width: 768px) {
-            .logo h1 {
-                font-size: 2rem;
-            }
         }
 
         .logo-badge {
@@ -125,37 +102,19 @@
 
         .network-stats {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             gap: 16px;
-            width: 100%;
-        }
-
-        @media (min-width: 768px) {
-            .network-stats {
-                width: auto;
-                flex-wrap: nowrap;
-            }
         }
 
         .stat-card {
             background: rgba(58, 24, 16, 0.5);
             border-radius: 12px;
-            padding: 16px 20px;
+            padding: 16px 24px;
             border: 1px solid rgba(255, 140, 60, 0.2);
-            min-width: 150px;
-            flex: 1;
+            min-width: 180px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-        }
-
-        @media (min-width: 768px) {
-            .stat-card {
-                min-width: 180px;
-                padding: 16px 24px;
-            }
         }
 
         .stat-card::before {
@@ -190,7 +149,7 @@
         }
 
         .stat-value {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
             background: linear-gradient(135deg, #ffa500, #d0d0d0);
             background-clip: text;
@@ -198,22 +157,10 @@
             -webkit-text-fill-color: transparent;
         }
 
-        @media (min-width: 768px) {
-            .stat-value {
-                font-size: 2rem;
-            }
-        }
-
         .main-content {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 24px;
-        }
-
-        @media (min-width: 1024px) {
-            .main-content {
-                grid-template-columns: 1fr 1fr;
-            }
         }
 
         .network-map {
@@ -224,8 +171,6 @@
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 0 60px rgba(255, 100, 30, 0.05);
             transition: all 0.3s ease;
-            min-height: 400px;
-            width: 100%;
         }
 
         .network-map:hover {
@@ -238,23 +183,11 @@
             top: 24px;
             left: 24px;
             z-index: 10;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #ffa500;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-        }
-
-        @media (min-width: 768px) {
-            .map-title {
-                font-size: 1.3rem;
-            }
-        }
-
-        .canvas-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
         }
 
         #networkCanvas {
@@ -268,15 +201,9 @@
             background: rgba(32, 11, 1, 0.4);
             border-radius: 20px;
             border: 1px solid rgba(255, 140, 60, 0.2);
-            padding: 20px;
+            padding: 28px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 0 60px rgba(255, 100, 30, 0.05);
             transition: all 0.3s ease;
-        }
-
-        @media (min-width: 768px) {
-            .applications-panel {
-                padding: 28px;
-            }
         }
 
         .applications-panel:hover {
@@ -285,18 +212,12 @@
         }
 
         .panel-title {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 20px;
             color: #ffa500;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-        }
-
-        @media (min-width: 768px) {
-            .panel-title {
-                font-size: 1.3rem;
-            }
         }
 
         .app-list {
@@ -370,15 +291,9 @@
             font-weight: 700;
             margin-bottom: 6px;
             color: #ffa500;
-            font-size: 1rem;
+            font-size: 1.05rem;
             z-index: 2;
             position: relative;
-        }
-
-        @media (min-width: 768px) {
-            .app-name {
-                font-size: 1.05rem;
-            }
         }
 
         .app-desc {
@@ -452,19 +367,13 @@
             background: linear-gradient(135deg, rgba(58, 24, 16, 0.7) 0%, rgba(42, 17, 9, 0.5) 100%);
             border-radius: 16px;
             border: 1px solid rgba(255, 140, 60, 0.25);
-            padding: 20px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 
-                        inset 0 0 40px rgba(255, 140, 60, 0.05),
-                        0 0 30px rgba(255, 100, 30, 0.15);
+            padding: 24px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+                inset 0 0 40px rgba(255, 140, 60, 0.05),
+                0 0 30px rgba(255, 100, 30, 0.15);
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             overflow: hidden;
-        }
-
-        @media (min-width: 768px) {
-            .info-card {
-                padding: 24px;
-            }
         }
 
         .info-card::before {
@@ -480,9 +389,9 @@
         .info-card:hover {
             border-color: rgba(255, 140, 60, 0.5);
             background: linear-gradient(135deg, rgba(58, 24, 16, 0.9) 0%, rgba(42, 17, 9, 0.7) 100%);
-            box-shadow: 0 16px 60px rgba(255, 100, 30, 0.25), 
-                        inset 0 0 50px rgba(255, 140, 60, 0.1),
-                        0 0 40px rgba(255, 140, 60, 0.3);
+            box-shadow: 0 16px 60px rgba(255, 100, 30, 0.25),
+                inset 0 0 50px rgba(255, 140, 60, 0.1),
+                0 0 40px rgba(255, 140, 60, 0.3);
             transform: translateY(-3px);
         }
 
@@ -509,9 +418,9 @@
         }
 
         .tooltip {
-              position: absolute;
-              background: linear-gradient(135deg, rgba(58, 24, 16, 0.98), rgba(58, 24, 16, 0.9));
-              color: #ffa500;
+            position: absolute;
+            background: linear-gradient(135deg, rgba(58, 24, 16, 0.98), rgba(58, 24, 16, 0.9));
+            color: #ffa500;
             padding: 12px 16px;
             border-radius: 10px;
             pointer-events: none;
@@ -548,8 +457,15 @@
         }
 
         @keyframes pulse-instructions {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         .node-info {
@@ -676,9 +592,11 @@
                 opacity: 0;
                 transform: scale(0.3);
             }
+
             50% {
                 transform: scale(1.15);
             }
+
             100% {
                 opacity: 1;
                 transform: scale(1);
@@ -689,9 +607,11 @@
             0% {
                 filter: drop-shadow(0 0 10px rgba(255, 140, 60, 0.4));
             }
+
             50% {
                 filter: drop-shadow(0 0 30px rgba(255, 140, 60, 0.8));
             }
+
             100% {
                 filter: drop-shadow(0 0 10px rgba(255, 140, 60, 0.4));
             }
@@ -703,6 +623,7 @@
                 stroke-dasharray: 1000;
                 stroke-dashoffset: 1000;
             }
+
             100% {
                 opacity: 1;
                 stroke-dasharray: 1000;
@@ -710,8 +631,63 @@
             }
         }
 
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            body {
+                overflow-y: auto;
+                height: auto;
+            }
+
+            .dashboard-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr;
+                height: auto;
+                overflow: visible;
+                padding: 16px;
+            }
+
+            .sidebar {
+                grid-row: 3;
+            }
+
+            .main-content {
+                min-height: 600px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .network-stats {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 8px;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .network-map {
+                min-height: 400px;
+            }
+
+            .applications-panel {
+                max-height: none;
+            }
+
+            .app-list {
+                max-height: 400px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="dashboard-container">
         <div class="header">
@@ -738,14 +714,13 @@
         <div class="main-content">
             <div class="network-map">
                 <div class="map-title">NETWORK ECOSYSTEM</div>
-                <div class="canvas-container">
-                    <canvas id="networkCanvas"></canvas>
-                </div>
+                <canvas id="networkCanvas"></canvas>
                 <div id="node-tooltip" class="tooltip"></div>
                 <div class="instructions">✦ Hover over nodes for details • Click to explore ✦</div>
                 <div id="node-info" class="node-info">
                     <h4 id="info-title">Node Information</h4>
-                    <p id="info-description">Select a node to view detailed information about its role in the Gensyn network.</p>
+                    <p id="info-description">Select a node to view detailed information about its role in the Gensyn
+                        network.</p>
                     <div id="info-metrics"></div>
                     <button class="close-btn" onclick="closeNodeInfo()">Close</button>
                 </div>
@@ -887,7 +862,8 @@
             <div class="info-card">
                 <h3>⚡ Network Status</h3>
                 <div class="info-content">
-                    <p>The Gensyn testnet is operating with exceptional stability and peak performance across all systems.</p>
+                    <p>The Gensyn testnet is operating with exceptional stability and peak performance across all
+                        systems.</p>
                     <div class="metric-tag" style="margin-top: 12px;">SYNCED: 100%</div>
                     <div class="metric-tag">UPTIME: 99.98%</div>
                 </div>
@@ -904,7 +880,8 @@
             <div class="info-card">
                 <h3>🌐 About Gensyn</h3>
                 <div class="info-content">
-                    <p>Decentralized compute protocol connecting ML tasks with distributed GPU resources, creating a global marketplace for AI compute.</p>
+                    <p>Decentralized compute protocol connecting ML tasks with distributed GPU resources, creating a
+                        global marketplace for AI compute.</p>
                     <div class="metric-tag">TESTNET PHASE</div>
                 </div>
             </div>
@@ -920,25 +897,11 @@
         const infoDescription = document.getElementById('info-description');
         const infoMetrics = document.getElementById('info-metrics');
 
-        // Initialize canvas size
-        function initCanvas() {
-            const container = canvas.parentElement;
-            canvas.width = container.clientWidth;
-            canvas.height = container.clientHeight;
-            
-            centerX = canvas.width / 2;
-            centerY = canvas.height / 2;
-            
-            // Reposition nodes based on new center
-            nodes.forEach(node => {
-                node.x = centerX + (node.x - centerX);
-                node.y = centerY + (node.y - centerY);
-            });
-        }
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
 
-        let centerX, centerY;
-        initCanvas();
-
+        let centerX = canvas.width / 2;
+        let centerY = canvas.height / 2;
         let mouseX = centerX;
         let mouseY = centerY;
 
@@ -1039,7 +1002,7 @@
 
             update() {
                 const activeNode = selectedNode || hoveredNode;
-                
+
                 if (this.from.appeared && this.to.appeared) {
                     if (activeNode) {
                         if (activeNode === this.from || activeNode === this.to) {
@@ -1050,7 +1013,7 @@
                     } else {
                         this.opacity = Math.min(this.opacity + 0.025, 0.85);
                     }
-                    
+
                     if (this.opacity > 0) {
                         this.progress += this.speed;
                         if (this.progress >= 1) {
@@ -1066,7 +1029,7 @@
                 if (this.opacity > 0) {
                     const activeNode = selectedNode || hoveredNode;
                     const displaySize = this.size * (activeNode ? 1.3 : 1);
-                    
+
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, displaySize, 0, Math.PI * 2);
                     ctx.fillStyle = `rgba(255, 140, 60, ${this.opacity * 0.8})`;
@@ -1106,12 +1069,12 @@
                 const delay = i * 100;
                 if (elapsed > delay && !node.appeared) {
                     const progress = Math.min((elapsed - delay) / 400, 1);
-                    
+
                     // Smooth easing function for entrance
                     const easeOut = 1 - Math.pow(1 - progress, 3);
-                    
+
                     node.scale = node.targetScale * easeOut;
-                    
+
                     if (progress >= 1) {
                         node.appeared = true;
                         node.scale = node.targetScale;
@@ -1126,12 +1089,12 @@
                     const activeNode = selectedNode || hoveredNode;
                     let opacity = Math.max(0.08, 0.35 - dist / 1000);
                     let lineWidth = 2.5;
-                    
+
                     const offsetAX = (nodeA.x - centerX) * (1 - nodeA.depth) * 0.1 + parallaxX * nodeA.depth;
                     const offsetAY = (nodeA.y - centerY) * (1 - nodeA.depth) * 0.1 + parallaxY * nodeA.depth;
                     const offsetBX = (nodeB.x - centerX) * (1 - nodeB.depth) * 0.1 + parallaxX * nodeB.depth;
                     const offsetBY = (nodeB.y - centerY) * (1 - nodeB.depth) * 0.1 + parallaxY * nodeB.depth;
-                    
+
                     if (activeNode && (activeNode === nodeA || activeNode === nodeB)) {
                         opacity = 0.9;
                         lineWidth = 4.5;
@@ -1139,7 +1102,7 @@
                         opacity = 0.05;
                         lineWidth = 1.5;
                     }
-                    
+
                     // Gradient line effect
                     const gradient = ctx.createLinearGradient(
                         nodeA.x + offsetAX, nodeA.y + offsetAY,
@@ -1148,7 +1111,7 @@
                     gradient.addColorStop(0, `rgba(255, 140, 60, ${opacity * 0.5})`);
                     gradient.addColorStop(0.5, `rgba(255, 140, 60, ${opacity})`);
                     gradient.addColorStop(1, `rgba(255, 100, 30, ${opacity * 0.5})`);
-                    
+
                     ctx.strokeStyle = gradient;
                     ctx.lineWidth = lineWidth;
                     ctx.lineCap = 'round';
@@ -1175,14 +1138,14 @@
                     const activeNode = selectedNode || hoveredNode;
                     const isActive = activeNode === node;
                     const isDimmed = activeNode && !isActive;
-                    
+
                     // Enhanced glow during entrance animation
                     let glowIntensity = isActive ? 2.5 : (isDimmed ? 0.2 : 1.2);
                     const isEntering = node.scale < 0.95;
                     if (isEntering) {
                         glowIntensity = glowIntensity * (0.8 + Math.sin(elapsed * 0.005 + node.pulsePhase) * 0.3);
                     }
-                    
+
                     const radiusBoost = isActive ? 12 : 0;
                     const finalRadius = node.radius + radiusBoost;
 
@@ -1192,7 +1155,7 @@
                     const offsetY = (node.y - centerY) * (1 - node.depth) * 0.1 + parallaxY * node.depth;
                     const drawX = node.x + offsetX;
                     const drawY = node.y + offsetY;
-                    
+
                     const depthScale = 0.7 + (node.depth * 0.3);
                     const depthRadius = finalRadius * depthScale;
 
@@ -1202,34 +1165,34 @@
                         ctx.beginPath();
                         ctx.arc(drawX, drawY, depthRadius + i * 6, 0, Math.PI * 2);
                         const alpha = (0.5 / i) * glowIntensity * (isDimmed ? 0.3 : 1);
-                        ctx.fillStyle = `rgba(${node.color === '#ff8c3c' ? '255, 140, 60' : 
-                                              node.color === '#ff6400' ? '255, 100, 0' :
-                                              node.color === '#ffa500' ? '255, 165, 0' :
-                                              node.color === '#ff9d5c' ? '255, 157, 92' :
-                                              node.color === '#e67e22' ? '230, 126, 34' :
-                                              node.color === '#ff7f50' ? '255, 127, 80' :
-                                              '255, 165, 0'}, ${alpha})`;
+                        ctx.fillStyle = `rgba(${node.color === '#ff8c3c' ? '255, 140, 60' :
+                            node.color === '#ff6400' ? '255, 100, 0' :
+                                node.color === '#ffa500' ? '255, 165, 0' :
+                                    node.color === '#ff9d5c' ? '255, 157, 92' :
+                                        node.color === '#e67e22' ? '230, 126, 34' :
+                                            node.color === '#ff7f50' ? '255, 127, 80' :
+                                                '255, 165, 0'}, ${alpha})`;
                         ctx.fill();
                     }
 
                     // Main node with enhanced gradient
                     ctx.beginPath();
                     ctx.arc(drawX, drawY, depthRadius, 0, Math.PI * 2);
-                    
+
                     const gradient = ctx.createRadialGradient(
-                        drawX - depthRadius * 0.4, 
-                        drawY - depthRadius * 0.4, 
-                        0, 
-                        drawX, 
-                        drawY, 
+                        drawX - depthRadius * 0.4,
+                        drawY - depthRadius * 0.4,
+                        0,
+                        drawX,
+                        drawY,
                         depthRadius
                     );
-                    
+
                     const colorAlpha = isDimmed ? '60' : '';
                     gradient.addColorStop(0, node.color + (isDimmed ? '20' : ''));
                     gradient.addColorStop(0.6, node.color + colorAlpha);
                     gradient.addColorStop(1, node.color + (isDimmed ? '10' : '40'));
-                    
+
                     ctx.fillStyle = gradient;
                     ctx.shadowBlur = (35 + pulse * 2.5) * glowIntensity * node.depth;
                     ctx.shadowColor = node.color;
@@ -1277,7 +1240,7 @@
             const rect = canvas.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
             const clickY = e.clientY - rect.top;
-            
+
             const found = nodes.find(n => {
                 const dist = Math.hypot(clickX - n.x, clickY - n.y);
                 return dist < n.radius + 10 && n.appeared;
@@ -1295,7 +1258,7 @@
             const rect = canvas.getBoundingClientRect();
             mouseX = e.clientX - rect.left;
             mouseY = e.clientY - rect.top;
-            
+
             if (isDragging && dragNode) {
                 dragNode.x = Math.max(50, Math.min(canvas.width - 50, mouseX - offsetX));
                 dragNode.y = Math.max(50, Math.min(canvas.height - 50, mouseY - offsetY));
@@ -1328,11 +1291,11 @@
 
         canvas.addEventListener('click', (e) => {
             if (isDragging) return;
-            
+
             const rect = canvas.getBoundingClientRect();
             const clickX = e.clientX - rect.left;
             const clickY = e.clientY - rect.top;
-            
+
             const found = nodes.find(n => {
                 const dist = Math.hypot(clickX - n.x, clickY - n.y);
                 return dist < n.radius + 10 && n.appeared;
@@ -1342,7 +1305,7 @@
                 selectedNode = found;
                 infoTitle.textContent = found.label;
                 infoDescription.textContent = found.description;
-                
+
                 infoMetrics.innerHTML = '';
                 found.metrics.forEach(metric => {
                     const metricEl = document.createElement('div');
@@ -1351,7 +1314,7 @@
                     metricEl.style.animation = 'fadeIn 0.3s ease-out';
                     infoMetrics.appendChild(metricEl);
                 });
-                
+
                 nodeInfo.classList.add('visible');
             }
         });
@@ -1362,13 +1325,22 @@
             hoveredNode = null;
         }
 
-        // Improved resize handler
-        let resizeTimeout;
         window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                initCanvas();
-            }, 250);
+            const oldCenterX = centerX;
+            const oldCenterY = centerY;
+
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+
+            centerX = canvas.width / 2;
+            centerY = canvas.height / 2;
+
+            nodes.forEach(node => {
+                const offsetX = node.x - oldCenterX;
+                const offsetY = node.y - oldCenterY;
+                node.x = centerX + offsetX;
+                node.y = centerY + offsetY;
+            });
         });
 
         // Add fade-in animation
@@ -1382,4 +1354,5 @@
         document.head.appendChild(style);
     </script>
 </body>
+
 </html>

@@ -50,7 +50,7 @@
             display: grid;
             grid-template-columns: 1fr 320px;
             grid-template-rows: auto 1fr;
-            height: 100vh;
+            min-height: 100vh;
             padding: 24px;
             gap: 24px;
             overflow: hidden;
@@ -161,6 +161,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
+            flex-grow: 1;
         }
 
         .network-map {
@@ -171,6 +172,7 @@
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 0 60px rgba(255, 100, 30, 0.05);
             transition: all 0.3s ease;
+            min-height: 500px;
         }
 
         .network-map:hover {
@@ -224,7 +226,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            max-height: calc(100vh - 400px);
+            max-height: 60vh;
             overflow-y: auto;
             padding-right: 8px;
         }
@@ -257,7 +259,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            max-height: 80px;
+            max-height: 120px;
             display: flex;
             flex-direction: column;
         }
